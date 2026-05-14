@@ -1,5 +1,7 @@
+# Predicting the Century of Creation of an Artwork Using Museum Metadata
+
 ## Project Overview
-This project uses machine learning to predict the century in which an artwork was created using museum metadata from the Art Institute of Chicago API.
+This project uses machine learning to predict the century in which an artwork was created using museum metadata from two public museum collections: the Art Institute of Chicago and The Metropolitan Museum of Art.
 
 The metadata includes fields such as:
 - title
@@ -13,25 +15,27 @@ The metadata includes fields such as:
 The goal is to test whether artwork metadata alone contains enough information to classify an artwork by century.
 
 ## Problem Statement
-Museums and digital archives contain large collections of artworks, but not every piece has complete or easily usable date information. Predicting the century of creation can help with cataloging, archiving, historical analysis, and organizing digital museum collections more efficiently.
+Museums and digital archives contain large collections of artworks, but not every artwork has complete, consistent, or easy-to-use date information. This creates challenges for cataloging, organizing collections, and supporting historical research. Our project focuses on predicting the century in which an artwork was created using museum metadata, such as the title, artist, medium, dimensions, classification, and department. The goal is to see whether these metadata fields contain enough historical signal to help identify the artwork’s time period. This problem is important because a model that can estimate an artwork’s century could help museums improve digital archiving, make large collections easier to manage, and support art historians when studying patterns and trends across time.
 
-## Data Source
-This project uses the public API from the Art Institute of Chicago:
+## Data Sources
+This project uses public API data from:
 
 - Art Institute of Chicago API
+- The Metropolitan Museum of Art Collection API
 
 ## Workflow
 The notebook follows these main steps:
 
-1. Collect artwork metadata from the Art Institute of Chicago API
-2. Clean the data and extract usable year information
-3. Convert years into century labels
-4. Build text representations from artwork metadata
-5. Train machine learning models using two approaches:
+1. Collect artwork metadata from the Art Institute of Chicago API and The Metropolitan Museum of Art API
+2. Combine and clean the data
+3. Extract usable year information
+4. Convert years into century labels
+5. Build text representations from artwork metadata
+6. Train machine learning models using two approaches:
    - TF-IDF features
    - Doc2Vec embeddings
-6. Compare model performance
-7. Visualize embedding behavior using t-SNE
+7. Compare model performance
+8. Visualize embedding behavior using t-SNE
 
 ## Models Used
 ### TF-IDF Approach
@@ -71,7 +75,7 @@ Example comparison:
 - Different centuries often share similar metadata patterns.
 - Some classes may be imbalanced.
 - Metadata text is short and structured, which may limit embedding quality.
-- The project uses one museum data source.
+- Results can depend on the quality and consistency of museum metadata.
 
 ## How to Run
 1. Open the notebook in Google Colab or Jupyter.
